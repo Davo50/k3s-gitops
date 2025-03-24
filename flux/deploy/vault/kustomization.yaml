@@ -5,10 +5,14 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./vault
+  path: "./valut"
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: k3s-gitops
     namespace: flux-system
-  targetNamespace: vault
+  validation: client
+  configMapGenerator:
+    - name: vault-values
+      files:
+        - values.yaml

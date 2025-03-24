@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vault
+  namespace: vault
+spec:
+  releaseName: vault
+  interval: 5m
+  chart:
+    spec:
+      chart: vault
+      version: "0.29.1"  
+      sourceRef:
+        kind: HelmRepository
+        name: hashicorp
+        namespace: flux-system
+  install:
+    createNamespace: true
+  valuesFrom:
+    - kind: ConfigMap
+      name: vault-values
+      valuesKey: values.yaml

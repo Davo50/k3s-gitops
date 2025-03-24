@@ -3,6 +3,4 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- ../vault/namespace.yaml
-- ../vault/helmrepository.yaml
-- ../vault/helmrelease.yaml
+- ../vault/kustomization.yaml

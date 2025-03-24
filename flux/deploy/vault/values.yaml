@@ -1,0 +1,12 @@
+server:
+  ha:
+    enabled: true
+    replicas: 3
+    raft:
+      enabled: true
+persistence:
+  enabled: true
+  storageClass: "standard"  
+  size: 10Gi
+ui:
+  enabled: true
