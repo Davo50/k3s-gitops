@@ -11,23 +11,23 @@ spec:
   chart:
     spec:
       chart: vault
+      version: "0.29.0"
       sourceRef:
         kind: HelmRepository
         name: hashicorp
         namespace: flux-system
   values:
     server:
+      image:
+        repository: "hashicorp/vault"
+        tag: "1.12.3"
       ha:
         enabled: true
         replicas: 3
         raft:
           enabled: true
         seal:
-          config:
-            yandexcloud:
-              kms_key_id: "dummy"
-      extraEnvironmentVars:
-        YANDEXCLOUD_KMS_KEY_ID: "dummy"
+          config: {}
       ui:
         enabled: true
     persistence:
