@@ -22,7 +22,10 @@ spec:
         replicas: 3
         raft:
           enabled: true
-      image: "hashicorp/vault:1.9.2"
+      image:
+        repository: "hashicorp/vault"  
+        tag: "1.19.0"                 
+        pullPolicy: IfNotPresent
       ui:
         enabled: true
     persistence:
