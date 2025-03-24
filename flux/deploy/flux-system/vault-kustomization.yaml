@@ -5,10 +5,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./flux/deploy/vault
+  path: ./vault
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-repo
+    name: flux-system
     namespace: flux-system
   targetNamespace: vault
