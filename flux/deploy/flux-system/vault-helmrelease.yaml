@@ -23,7 +23,7 @@ spec:
         raft:
           enabled: true
       extraEnvironmentVars:
-        VAULT_SEAL_TYPE: ""
+        VAULT_SEAL_TYPE: manual
         YANDEXCLOUD_KMS_KEY_ID: ""
         YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE: ""
       image:
