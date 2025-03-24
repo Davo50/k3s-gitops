@@ -17,15 +17,14 @@ spec:
         namespace: flux-system
   values:
     server:
-      disableAutoUnseal: true  
       ha:
         enabled: true
         replicas: 3
         raft:
           enabled: true
-      listener:
-        tcp:
-          tls_disable: true     
+        seal:
+          config:
+            kms_key_id: "dummy"
       ui:
         enabled: true
     persistence:
