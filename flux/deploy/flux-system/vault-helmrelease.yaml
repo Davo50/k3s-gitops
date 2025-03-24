@@ -16,51 +16,19 @@ spec:
         name: hashicorp
         namespace: flux-system
   values:
-    global:
-      tlsDisable: true  
-
     server:
-      extraEnvironmentVars:
-        VAULT_LOG_LEVEL: debug
-        
       ha:
         enabled: true
         replicas: 3
         raft:
           enabled: true
-          setNodeId: true
-          config: |
-            ui = true
-            listener "tcp" {
-              tls_disable = 1
-              address = "[::]:8200"
-              cluster_address = "[::]:8201"
-            }
-            storage "raft" {
-              path = "/vault/data"
-              node_id = "vault-${HOSTNAME##*-}"
-            }
-
-      extraArgs: -config=/vault/config/extraConfig.hcl
-
-    ui:
-      enabled: true
-
+      seal: {}               
+      listener:
+        tcp:
+          tls_disable: true   
+      ui:
+        enabled: true
     persistence:
       enabled: true
       storageClass: "local-path"
       size: 10Gi
-      accessMode: ReadWriteOnce
-
-    injector:
-      enabled: true
-      
-    affinity: |
-      podAntiAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-                - key: app.kubernetes.io/instance
-                  operator: In
-                  values: ["vault"]
-            topologyKey: "kubernetes.io/hostname"
