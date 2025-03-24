@@ -22,9 +22,10 @@ spec:
         replicas: 3
         raft:
           enabled: true
+      extraEnvironmentVars: {}  
       image:
-        repository: "hashicorp/vault"  
-        tag: "1.19.0"                 
+        repository: "hashicorp/vault"
+        tag: "1.19.0"
         pullPolicy: IfNotPresent
       ui:
         enabled: true
