@@ -22,7 +22,10 @@ spec:
         replicas: 3
         raft:
           enabled: true
-      extraEnvironmentVars: {}  
+      extraEnvironmentVars:
+        VAULT_SEAL_TYPE: ""
+        YANDEXCLOUD_KMS_KEY_ID: ""
+        YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE: ""
       image:
         repository: "hashicorp/vault"
         tag: "1.19.0"
