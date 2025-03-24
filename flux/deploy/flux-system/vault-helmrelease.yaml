@@ -27,8 +27,7 @@ spec:
             yandexcloud:
               kms_key_id: "dummy"
       extraEnvironmentVars:
-      - name: YANDEXCLOUD_KMS_KEY_ID
-        value: "dummy"
+        YANDEXCLOUD_KMS_KEY_ID: "dummy"
       ui:
         enabled: true
     persistence:
