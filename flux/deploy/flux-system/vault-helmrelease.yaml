@@ -22,38 +22,17 @@ spec:
         replicas: 3
         raft:
           enabled: true
-          # Отключение автоматического распечатывания через KMS
-          config: |
-            ui = true
-            
-            listener "tcp" {
-              address = "[::]:8200"
-              cluster_address = "[::]:8201"
-              tls_disable = 1
-            }
-            
-            storage "raft" {
-              path = "/vault/data"
-              retry_join {
-                leader_api_addr = "http://vault-0.vault-internal:8200"
-              }
-              retry_join {
-                leader_api_addr = "http://vault-1.vault-internal:8200"
-              }
-              retry_join {
-                leader_api_addr = "http://vault-2.vault-internal:8200"
-              }
-            }
-            
-            seal "shamir" {
-            }
-            
-            service_registration "kubernetes" {}
+          config:
+            path: /vault/data
+            node_id: "$(POD_NAME)"
+            storage:
+              backend: raft
+              ha_backend:
+                enabled: true
+                replication:
+                  enabled: true
       ui:
         enabled: true
-      extraEnvironmentVars:
-        VAULT_CACERT: /vault/userconfig/vault-ha-tls/vault.ca
-        VAULT_ADDR: https://127.0.0.1:8200
     persistence:
       enabled: true
       storageClass: "local-path"
