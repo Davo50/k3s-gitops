@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: vault
-      version: "0.27.0"    # Уточните актуальную версию, если требуется
+      version: "0.27.0"
       sourceRef:
         kind: HelmRepository
         name: hashicorp
@@ -27,5 +27,5 @@ spec:
         enabled: true
     persistence:
       enabled: true
-      storageClass: "local-path"
+      storageClass: "local-path" 
       size: 10Gi
