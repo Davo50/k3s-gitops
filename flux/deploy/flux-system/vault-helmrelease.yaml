@@ -27,5 +27,5 @@ spec:
         enabled: true
     persistence:
       enabled: true
-      storageClass: "local-path" 
+      storageClass: "local-path"
       size: 10Gi
