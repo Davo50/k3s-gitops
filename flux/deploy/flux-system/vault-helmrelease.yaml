@@ -23,6 +23,10 @@ spec:
         raft:
           enabled: true
           storageBackend: raft
+          retryJoin:
+            - provider: kubernetes
+              address: vault.vault.svc.cluster.local
+              port: "8200"
       seal:
         enabled: false  
       ui:
