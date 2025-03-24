@@ -17,15 +17,15 @@ spec:
         namespace: flux-system
   values:
     server:
+      disableAutoUnseal: true  
       ha:
         enabled: true
         replicas: 3
         raft:
           enabled: true
-      seal: {}               
       listener:
         tcp:
-          tls_disable: true   
+          tls_disable: true     
       ui:
         enabled: true
     persistence:
