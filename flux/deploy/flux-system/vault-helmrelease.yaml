@@ -22,6 +22,9 @@ spec:
         replicas: 3
         raft:
           enabled: true
+          storageBackend: raft
+      seal:
+        enabled: false  
       ui:
         enabled: true
     persistence:
