@@ -24,7 +24,11 @@ spec:
           enabled: true
         seal:
           config:
-            kms_key_id: "dummy"
+            yandexcloud:
+              kms_key_id: "dummy"
+      extraEnvironmentVars:
+      - name: YANDEXCLOUD_KMS_KEY_ID
+        value: "dummy"
       ui:
         enabled: true
     persistence:
