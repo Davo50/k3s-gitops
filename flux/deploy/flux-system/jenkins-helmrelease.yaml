@@ -25,3 +25,7 @@ spec:
         enabled: true
         storageClass: "local-path" 
         size: 10Gi
+    agent:
+      enabled: true
+      replicaCount: 2
+      image: "jenkins/inbound-agent:latest"
