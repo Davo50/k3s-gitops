@@ -7,3 +7,4 @@ resources:
 - jenkins-helmrelease.yaml
 - jenkins-agent-deployment.yaml
 - jenkins-agent-secret.yaml
+- backup-cronjob.yaml

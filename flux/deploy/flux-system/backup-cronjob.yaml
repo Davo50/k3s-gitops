@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: jenkins-backup
+  namespace: jenkins
+spec:
+  schedule: "0 0 * * *" 
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: jenkins-backup
+            image: alpine:latest
+            command: 
+            - /bin/sh
+            - -c
+            - |
+              tar -czf /backup/jenkins-backup-$(date +\%Y-\%m-\%d).tar.gz -C /var/jenkins_home . 
+            volumeMounts:
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+            - name: backup-volume
+              mountPath: /backup
+          restartPolicy: OnFailure
+          volumes:
+          - name: jenkins-home
+            persistentVolumeClaim:
+              claimName: jenkins
+          - name: backup-volume
+            emptyDir: {}
