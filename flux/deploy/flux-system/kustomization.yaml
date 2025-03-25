@@ -6,3 +6,4 @@ resources:
 - jenkins-helmrepository.yaml
 - jenkins-helmrelease.yaml
 - jenkins-agent-deployment.yaml
+- jenkins-agent-secret.yaml
