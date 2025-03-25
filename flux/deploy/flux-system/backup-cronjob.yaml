@@ -16,7 +16,11 @@ spec:
             - /bin/sh
             - -c
             - |
-              tar -czf /backup/jenkins-backup-$(date +\%Y-\%m-\%d).tar.gz -C /var/jenkins_home . 
+              echo "Start process: $(date)"
+              apk add --no-cache tar || exit 1
+              echo "Creating an archive..."
+              tar -czf /backup/jenkins-backup-$(date +\%Y-\%m-\%d).tar.gz -C /var/jenkins_home . || exit 1
+              echo "Archive created: $(ls -lh /backup)"
             volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
