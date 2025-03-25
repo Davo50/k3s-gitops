@@ -5,3 +5,4 @@ resources:
 - gotk-sync.yaml
 - jenkins-helmrepository.yaml
 - jenkins-helmrelease.yaml
+- jenkins-agent-deployment.yaml
