@@ -17,7 +17,7 @@ spec:
         name: jenkins
         namespace: flux-system
   values:
-    master:
+    controller:
       replicaCount: 1
       service:
         type: ClusterIP
