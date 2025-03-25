@@ -28,4 +28,7 @@ spec:
     agent:
       enabled: true
       replicaCount: 2
-      image: "jenkins/inbound-agent:latest"
+      image:
+        repository: "jenkins/inbound-agent"
+        tag: "4.6-1"
+        pullPolicy: IfNotPresent
