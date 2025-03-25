@@ -26,9 +26,4 @@ spec:
         storageClass: "local-path" 
         size: 10Gi
     agent:
-      enabled: true
-      replicaCount: 2
-      image:
-        repository: "jenkins/inbound-agent"
-        tag: "4.6-1"
-        pullPolicy: IfNotPresent
+      enabled: false
